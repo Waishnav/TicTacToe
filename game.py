@@ -43,6 +43,12 @@ def printBoard(board):
 
 won = False
 
+def print_thinking():
+    list = ["⚪ ◉ ◉ ", "◉ ⚪ ◉ ", "◉ ◉ ⚪ ","⚪ ◉ ◉ ", "◉ ⚪ ◉ ", "◉ ◉ ⚪ ","⚪ ◉ ◉ ", "◉ ⚪ ◉ ", "◉ ◉ ⚪ "]
+    for i in range(len(list)):
+        print(list[i], sep='', end='\r', flush=True)
+        sleep(0.2)
+
 # win_conditions = checkpost at every moves from both user which checks vertical horrizontal and diagonal symmetry
 def win_conditions(y):
     global won
@@ -117,10 +123,10 @@ def game2():
         else:
             printBoard(Board)
             print("Its COMPUTER's turn.")
-            print("Computer is thinking")
-            for i in "🤔🤔":
-                print(i) 
-                sleep(1) 
+            #statement = "Computer is thinking..."
+            #for t in statement:
+            #    print(statement[t], sep='', flush=True); sleep(0.2)
+            print_thinking()
             move = random.choice(unfilled_list)
             if Board[move] == ' ':
                 Board[move] = "O"
